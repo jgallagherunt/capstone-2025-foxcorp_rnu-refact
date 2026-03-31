@@ -46,36 +46,43 @@ export default function MessageInput({
   };
 
   const styles = StyleSheet.create({
-    container: {
-      flexDirection: "row",
-      alignItems: "flex-end",
-      paddingHorizontal: 10,
-      paddingTop: 8,
-      paddingBottom: Platform.OS === "ios" ? 28 : 10,
-      backgroundColor: bgColor,
-      borderTopWidth: 1,
-      borderTopColor: borderColor,
-    },
-    input: {
-      flex: 1,
-      minHeight: 40,
-      maxHeight: 120,
-      backgroundColor: cardBg,
-      borderRadius: 20,
-      paddingHorizontal: 16,
-      paddingTop: 10,
-      paddingBottom: 10,
-      fontSize: 15,
-      color: textColor,
-    },
-    sendButton: {
-      width: 40,
-      height: 40,
-      borderRadius: 20,
-      alignItems: "center",
-      justifyContent: "center",
-      marginLeft: 8,
-    },
+  container: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    paddingHorizontal: 10,
+    paddingTop: 8,
+    paddingBottom: Platform.OS === "ios" ? 28 : 10,
+    backgroundColor: bgColor,
+    borderTopWidth: 1,
+    borderTopColor: borderColor,
+  },
+  input: {
+    flex: 1,
+    minHeight: 42,
+    maxHeight: 120,
+    backgroundColor: cardBg,
+    borderRadius: 22,
+    paddingHorizontal: 16,
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontSize: 15,
+    color: textColor,
+
+    // subtle border
+    borderWidth: 1,
+    borderColor: borderColor,
+  },
+  sendButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: 8,
+
+    // filled button when active
+    backgroundColor: canSend ? tintColor : "transparent",
+  },
   });
 
   return (
@@ -95,10 +102,10 @@ export default function MessageInput({
         disabled={!canSend}
       >
         <Ionicons
-          name="send"
-          size={24}
-          color={canSend ? tintColor : placeholderColor}
-        />
+        name="send"
+        size={20}
+        color={canSend ? "#fff" : placeholderColor}
+       />
       </Pressable>
     </View>
   );

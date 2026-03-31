@@ -100,7 +100,10 @@ export default function TeacherConversationScreen() {
             currentUserId={userTeacher.userId}
           />
         )}
-        contentContainerStyle={{ paddingVertical: 12 }}
+        contentContainerStyle={{
+        paddingVertical: 12,
+        paddingBottom: 20,
+        }}
         onContentSizeChange={() =>
           flatListRef.current?.scrollToEnd({ animated: false })
         }
