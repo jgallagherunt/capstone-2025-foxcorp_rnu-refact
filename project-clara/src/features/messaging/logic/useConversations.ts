@@ -51,7 +51,12 @@ export function useConversations(
     if (result.error) {
       setError(result.error);
     } else {
-      setConversations(result.data ?? []);
+      setConversations(
+        (result.data ?? []).map((c) => ({
+        ...c,
+        unreadCount: Math.floor(Math.random() * 5),
+      }))
+     );
     }
     setIsLoading(false);
   }, [role, userId]);

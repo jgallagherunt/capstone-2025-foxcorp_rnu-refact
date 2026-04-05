@@ -56,6 +56,8 @@ export default function ConversationItem({
     ? `Re: ${conversation.studentName}`
     : null;
 
+  const unreadCount = (conversation as any).unreadCount ?? 0;
+
   const styles = StyleSheet.create({
     row: {
       flexDirection: "row",
@@ -105,6 +107,24 @@ export default function ConversationItem({
       marginTop: 4,
       numberOfLines: 1,
     },
+    
+    badge: {
+     minWidth: 20,
+     height: 20,
+     borderRadius: 10,
+     backgroundColor: "#ec5557",
+     alignItems: "center",
+     justifyContent: "center",
+     marginLeft: 8,
+     paddingHorizontal: 6,
+    },
+    
+    badgeText: {
+    color: "#fff",
+    fontSize: 12,
+    fontWeight: "600",
+    },
+
   });
 
   return (
