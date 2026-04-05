@@ -142,6 +142,14 @@ export default function ConversationItem({
           <Text style={styles.title} numberOfLines={1}>
             {title}
           </Text>
+
+          {unreadCount > 0 && (
+           <View style={styles.badge}>
+           <Text style={styles.badgeText}>{unreadCount}</Text>
+             </View>
+            )}
+            </View>
+            
           <Text style={styles.time}>
             {relativeTime(conversation.lastMessageAt)}
           </Text>

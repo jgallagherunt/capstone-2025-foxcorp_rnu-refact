@@ -15,6 +15,7 @@ import {
 import { useThemeColor } from "@/src/features/app-themes/logic/use-theme-color";
 import { Conversation } from "../api/messageRepo";
 import ConversationItem from "./ConversationItem";
+import { Ionicons } from "@expo/vector-icons";
 
 interface Props {
   conversations: Conversation[];
@@ -59,6 +60,18 @@ export default function ConversationList({
       color: "#ec5557",
       textAlign: "center",
     },
+    emptyTitle: {
+       fontSize: 18,
+       fontWeight: "600",
+       color: textColor,
+       marginBottom: 6,
+    },
+    emptySubtext: {
+       fontSize: 14,
+      color: subtextColor,
+      textAlign: "center",
+      maxWidth: 250,
+    },
   });
 
   if (isLoading && conversations.length === 0) {
@@ -93,7 +106,11 @@ export default function ConversationList({
         onRefresh={onRefresh}
         ListEmptyComponent={
           <View style={styles.centered}>
-            <Text style={styles.emptyText}>No conversations yet</Text>
+          <Ionicons name="chatbubble-ellipses-outline" size={48} color={subtextColor} style={{ marginBottom: 12 }} />
+          <Text style={styles.emptyTitle}>No conversations yet</Text>
+          <Text style={styles.emptySubtext}>
+          Start a conversation with a teacher or parent to begin messaging.
+            </Text>
           </View>
         }
       />
